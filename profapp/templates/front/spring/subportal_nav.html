@@ -17,12 +17,11 @@
 
         {% for division in portal.divisions %}
             {% if division.portal_division_type_id == 'news' or division.portal_division_type_id == 'events' %}
-                <li {% if current_subportal_division and division.id == current_subportal_division.id
-                            %}class="active"{% endif %}>
+                <li {% if current_subportal_division and division.id == current_subportal_division.id%}class="active"{% endif %}>
                     <a href="{{ url_for('front.subportal_division',
                                    member_company_id = member_company['id'] ,
-                       subportal_division.html            member_company_name = member_company['name'],
-                                   division_name=division.name, page=1, search_text='') }}">{{ division.name }}</a>
+                       subportal_division.html, member_company_name = member_company['name'],
+                                   division_name=division.name, page=1, search_text='')}}">{{ division.name }}</a>
                 </li>
             {% endif %}
         {% endfor %}

@@ -37,9 +37,11 @@ class Ips(Base, PRBase):
             if 'en' in kwargs['search_text']:
                 sub_query = sub_query.filter(Ips.en.ilike("%" + kwargs['search_text']['en'] + "%"))
         if 'cr_tm' in kwargs['sort']:
-            sub_query = sub_query.order_by(Ips.cr_tm.asc()) if kwargs['sort']['cr_tm'] == 'asc' else sub_query.order_by(TranslateTemplate.cr_tm.desc())
+            sub_query = sub_query.order_by(Ips.cr_tm.asc()) if kwargs['sort']['cr_tm'] == 'asc' \
+             else sub_query.order_by(TranslateTemplate.cr_tm.desc())
         elif 'ac_tm' in kwargs['sort']:
-            sub_query = sub_query.order_by(Ips.ac_tm.asc()) if kwargs['sort']['ac_tm'] == 'asc' else sub_query.order_by(TranslateTemplate.ac_tm.desc())
+            sub_query = sub_query.order_by(Ips.ac_tm.asc()) if kwargs['sort']['ac_tm'] == 'asc'\
+                else sub_query.order_by(TranslateTemplate.ac_tm.desc())
 
 
         return sub_query

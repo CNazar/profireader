@@ -120,8 +120,9 @@ def get_portal_dict_for_material(portal, company, material=None, publication=Non
             ret['replace_id'] = publication_in_portal.id
         ret['id'] = portal.id if submit else publication_in_portal.id
         ret['publication'] = publication_in_portal.get_client_side_dict(
-            'id,position,title,status,visibility,portal_division_id,publishing_tm')
+            'id,position,title,status,visibility,portal_division_id,publishing_tm,tags')
         ret['publication']['division'] = ret['divisions'][ret['publication']['portal_division_id']]
+
         ret['publication']['counts'] = '0/0/0/0'
         ret['actions'] = PublishUnpublishInPortal(publication=publication_in_portal,
                                                   division=publication_in_portal.division, company=company).actions()
@@ -260,4 +261,3 @@ def list_reader(page=1):
                            portals=portals,
                            favorite=favorite
                            )
-

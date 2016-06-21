@@ -9,7 +9,6 @@ args = parser.parse_args()
 app = create_app(apptype=args.apptype)
 
 
-
 def app_run():
 
     if args.apptype == 'front':
