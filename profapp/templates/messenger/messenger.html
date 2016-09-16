@@ -581,8 +581,11 @@
                                                     (message['from_user_id'] ==
                                                     me_user_id)?_('You'):loaded_chats[selected_chat_room_id]['users'][message['from_user_id']]['full_name']
                                                     }}</strong>
+
                                             </div>
+                                        <div class="direct-chat-text">
                                             <p>{{ message.content }}</p>
+                                        </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -593,12 +596,12 @@
                                           ng-disabled="!selected_chat_room_id || !loaded_chats[selected_chat_room_id] || loaded_chats[selected_chat_room_id]['loading']"
                                           class="form-control input-sm"
                                           ctrl-enter="send_message()"
-                                          placeholder="Type your message here..."></textarea>
+                                          placeholder="Type Message ..."></textarea>
                         <span class="input-group-btn">
-                            <button ng-disabled="message_text == '' || !selected_chat_room_id || !loaded_chats[selected_chat_room_id] || loaded_chats[selected_chat_room_id]['loading']"
+                            <button class="btn btn-primary btn-flat" ng-disabled="message_text == '' || !selected_chat_room_id || !loaded_chats[selected_chat_room_id] || loaded_chats[selected_chat_room_id]['loading']"
                                     ng-click="send_message()"
                                     class="btn btn-warning btn-sm" id="btn-chat">
-                                {{ _('Send message') }}</button>
+                                {{ _('Send') }}</button>
                         </span>
                                 </div>
                             </div>
