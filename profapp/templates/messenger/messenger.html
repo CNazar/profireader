@@ -571,20 +571,26 @@
                                         <img class="messenger-avatar" pr-image-position="center center"
                                              pr-image-url="{{ loaded_chats[selected_chat_room_id]['users'][message['from_user_id']]['avatar']['url'] }}"/>
                                     </span>
-                                        <div style="color: #f00; font-size: 8px">{{ moment(message.cr_tm) }}
-                                        </div>
+
                                         <div class="chat-body clearfix">
                                             <div class="header">
                                                 <small class=" text-muted"> </small>
-                                                <strong class="primary-font"
-                                                        ng-class="{'pull-right': message['from_user_id'] == me_user_id, 'pull-left': message['from_user_id'] != me_user_id}">{{
-                                                    (message['from_user_id'] ==
-                                                    me_user_id)?_('You'):loaded_chats[selected_chat_room_id]['users'][message['from_user_id']]['full_name']
-                                                    }}</strong>
 
                                             </div>
-                                        <div class="direct-chat-text">
-                                            <p>{{ message.content }}</p>
+                                        <div class="direct-chat-speech"
+                                             ng-class="{'left-speech': message['from_user_id'] == me_user_id,
+                                                  'right-speech': message['from_user_id'] != me_user_id}">
+                                            <a class="speech-media-heading "
+                                                        ng-class="{'pull-right': message['from_user_id'] == me_user_id, 'pull-left': message['from_user_id'] != me_user_id}">{{
+                                                    (message['from_user_id'] ==
+                                                    me_user_id)?_('You'):loaded_chats[selected_chat_room_id]['users'][message['from_user_id']]['full_name'] }}
+                                            </a>
+
+                                            <p class="speech-position" >{{ message.content}}</p>
+
+                                            <div class="time-speech">{{ moment(message.cr_tm) }}
+                                        </div>
+
                                         </div>
                                         </div>
                                     </li>
@@ -596,7 +602,8 @@
                                           ng-disabled="!selected_chat_room_id || !loaded_chats[selected_chat_room_id] || loaded_chats[selected_chat_room_id]['loading']"
                                           class="form-control input-sm"
                                           ctrl-enter="send_message()"
-                                          placeholder="Type Message ..."></textarea>
+                                          placeholder="Type Message ...">
+                                </textarea>
                         <span class="input-group-btn">
                             <button class="btn btn-primary btn-flat" ng-disabled="message_text == '' || !selected_chat_room_id || !loaded_chats[selected_chat_room_id] || loaded_chats[selected_chat_room_id]['loading']"
                                     ng-click="send_message()"
@@ -607,6 +614,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
 
 

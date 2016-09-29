@@ -109,9 +109,9 @@ class User(Base, UserMixin, PRBase):
                                    name='%s_for_user_avatar_%s' % (f.name, u.id),
                                    parent_id=u.system_folder_file_id,
                                    root_folder_id=u.system_folder_file_id),
-                               image_size=[300, 400],
+                               image_size=[400, 400],
                                min_size=[100, 100],
-                               aspect_ratio=[0.5, 2.],
+                               aspect_ratio=[1., 1.],
                                after_get=lambda u, r, v: u.get_avatar_preset(r, v),
                                before_set=lambda u, r, v: u.set_avatar_preset(r, v),
                                no_selection_url=utils.fileUrl(FOLDER_AND_FILE.no_user_avatar()))
