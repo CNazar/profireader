@@ -589,6 +589,7 @@
                                             <p class="speech-position" >{{ message.content}}</p>
 
                                             <div class="time-speech">{{ moment(message.cr_tm) }}
+                                                <i class="fa fa-clock-o fa-fw"></i>
                                         </div>
 
                                         </div>
@@ -596,7 +597,7 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="panel-footer">
+                            <div class="chat-panel-footer">
                                 <div class="input-group">
                                 <textarea ng-model="message_text" id="btn-input" type="text"
                                           ng-disabled="!selected_chat_room_id || !loaded_chats[selected_chat_room_id] || loaded_chats[selected_chat_room_id]['loading']"
